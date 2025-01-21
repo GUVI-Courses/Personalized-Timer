@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h1 class="title">Personalized Timer Project</h1>
+  <hr>
+  <div class="mb-3">
+    <label for="targetDate" class="form-label">
+      <h2>Set Target Date & Time</h2>
+    </label>
+    <input
+      type="datetime-local"
+      id="targetDate"
+      [(ngModel)]="targetDate"
+      class="form-control"
+      style="width:300px"/>
+      <button class="btn btn-warning mt-3" (click)="addTimer()">Add Timer</button>
+  </div>
+
+  <div class="grid-container mt-4">
+    <div *ngFor="let timer of timers;let i =index" class="card text-center p-2 grid-item" style="background-color: antiquewhite;">
+      <app-timer [targetDate]="timer.targetDate" [count]="i"></app-timer>
+      <button class="btn btn-danger btn-sm mt-2" (click)="deleteTimer(timer.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
